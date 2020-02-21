@@ -18,7 +18,7 @@ namespace FunctionApp1
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "files")] HttpRequestMessage req,
             ILogger log,
-            [Blob("%AzureStorage:FilePath%", FileAccess.Write, Connection = "AzureStorage:ConnectionString")] CloudBlobContainer cloudBlobContainer)
+            [Blob("AzureStorage:FilePath", FileAccess.Write, Connection = "AzureStorage:ConnectionString")] CloudBlobContainer cloudBlobContainer)
         {
             log.LogInformation(
                 $"{nameof(UploadHttpTrigger)} trigger function processed a request.");
